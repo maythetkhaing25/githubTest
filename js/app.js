@@ -1,11 +1,23 @@
-const inputbox=document.querySelector('.inputbox');
-const input=document.querySelector('.input');
-const btn=document.getElementById('btn');
-
-btn.addEventListener("click",function(){
-    colour=input.value;
-    inputbox.style.background= colour;
-    btn.style.background= colour;
+btns = document.querySelectorAll('.btn');
+inputBox = document.querySelector('.input');
 
 
+
+btns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        // console.log(btn);
+        const value=btn.getAttribute('num');
+        // console.log(value);
+        
+            if(value === "C"){
+                inputBox.value = "";
+            }else if(value === '='){
+                inputBox.value=eval(inputBox.value);
+            }else{
+                inputBox.value += value;
+            }
+        
+    })
 });
+
+
